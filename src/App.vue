@@ -2,9 +2,9 @@
     <div id="app">
         <div id="home">
             <div id="user">
-                <img class="round_icon" src="https://pic2.zhimg.com/80/v2-86cf45e7f34a38f5f4e20559f7d6fb35_hd.jpg" alt=""/>
-                <span class="user_name">兵荒马乱</span>
-                <p>可时光啊，不听话，总催着人长大。</p>
+                <img class="round_icon" v-bind:src="portrait" alt=""/>
+                <span class="user_name">{{ nickname }}</span>
+                <p>{{ signature }}</p>
             </div>
             <HomePage></HomePage>
         </div>
@@ -17,6 +17,26 @@
         name: 'App',
         components: {
             HomePage
+        },
+        data() {
+            return {
+                nickname: '',
+                signature: '',
+                portrait: ''
+            }
+        },
+        created() {
+            this.$http.get('/user', {
+                params: {}
+            }).then(function (response) {
+                let userInfo = response.data.data
+                this.nickname = userInfo.nickname
+                this.signature = userInfo.signature
+                this.portrait = userInfo.portrait
+            }.bind(this))
+                .catch(function (error) {
+                    console.log(error);
+                });
         }
     }
 </script>
