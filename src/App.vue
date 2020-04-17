@@ -5,15 +5,8 @@
 </template>
 
 <script>
-    // import home from './components/home.vue'
-    // import login from './components/login.vue'
-
     export default {
         name: 'App',
-        components: {
-            // home,
-            // login
-        },
     }
 </script>
 
