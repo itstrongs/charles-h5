@@ -3,9 +3,9 @@
         <div>
             <div id="category">
                 <ul>
-                    <li class="li2" v-for="type in typeList" :key="type">
+                    <ol class="li2" v-for="type in typeList" :key="type">
                         <a href="">{{ type.name }}</a>
-                    </li>
+                    </ol>
                 </ul>
             </div>
             <div id="content">
@@ -41,7 +41,7 @@
 
 <script>
     export default {
-        name: "module",
+        name: "BlogNote",
         props: {
         },
         data() {
@@ -63,7 +63,7 @@
 </script>
 
 <style scoped>
-    .li2 {
+    ol {
         margin: 30px 0;
         font-size: 20px;
     }
@@ -71,11 +71,11 @@
         color: #42b983;
     }
     #category {
-        width: 100px;
+        /*width: 100px;*/
         height: 100%;
         float: left;
         background-color:#eeeeee;
-        padding: 10px;
+        /*padding: 10px;*/
     }
     #content {
         width:350px;

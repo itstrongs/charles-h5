@@ -1,5 +1,5 @@
 <template>
-    <div id="nav">
+    <div id="home">
         <div id="user">
             <img class="round_icon" v-bind:src="portrait" alt=""/>
             <span class="user_name">{{ nickname }}</span>
@@ -7,25 +7,49 @@
         </div>
         <div id="module">
             <ul>
-                <li class="li1"><router-link to="/login">笔记</router-link></li>
-                <li class="li1"><router-link to="/">TODO</router-link></li>
-                <li class="li1"><a href="">照片故事</a></li>
-                <li class="li1"><a href="">微话</a></li>
-                <li class="li1"><a href="">心事圈</a></li>
+                <li class="li1"><h3 v-on:click="module='blog_note'">笔记</h3></li>
+                <li class="li1"><h3 v-on:click="module='todo_plan'">土豆计划</h3></li>
+                <li class="li1"><h3 v-on:click="module='photo_story'">照片故事</h3></li>
+                <li class="li1"><h3 v-on:click="module='micro_sentence'">微话</h3></li>
+                <li class="li1"><h3 v-on:click="module='person_friends'">心事圈</h3></li>
             </ul>
         </div>
-        <module/>
+        <div>
+            <div v-if="module === 'blog_note'">
+                <BlogNote/>
+            </div>
+            <div v-else-if="module === 'todo_plan'">
+                <TodoPlan/>
+            </div>
+            <div v-else-if="module === 'photo_story'">
+                <PhotoStory/>
+            </div>
+            <div v-else-if="module === 'micro_sentence'">
+                <MicroSentence/>
+            </div>
+            <div v-else-if="module === 'person_friends'">
+                <PersonFriends/>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
+    import BlogNote from "@/components/BlogNote";
+    import TodoPlan from "@/components/TodoPlan";
+    import PhotoStory from "@/components/PhotoStory";
+    import MicroSentence from "@/components/MicroSentence";
+    import PersonFriends from "@/components/PersonFriends";
+
     export default {
         name: "home",
+        components: {PersonFriends, MicroSentence, PhotoStory, TodoPlan, BlogNote},
         data() {
             return {
                 nickname: '',
                 signature: '',
-                portrait: ''
+                portrait: '',
+                module: 'blog_note',
             }
         },
         created() {
@@ -47,7 +71,7 @@
 </script>
 
 <style scoped>
-    #nav {
+    #home {
         width: 1000px;
         height: 100%;
         margin: 0 auto;
@@ -55,27 +79,32 @@
         padding: 30px;
         background-color: #FFFFFF;
     }
+
     #module {
         width: 500px;
         margin: 0 auto;
     }
+
     ul {
         list-style-type: none;
         padding: 0;
     }
+
     .li1 {
         display: inline-block;
         margin: 0 10px;
     }
+
     .round_icon {
-        padding:0;
-        margin:0;
-        vertical-align:middle;
+        padding: 0;
+        margin: 0;
+        vertical-align: middle;
         width: 50px;
         height: 50px;
         border-radius: 50%;
         overflow: hidden;
     }
+
     .user_name {
         color: #333333;
         font-size: 30px;

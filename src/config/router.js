@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Login from '@/components/login';
-import Home from '@/components/home';
+import Login from '@/components/Login';
+import Home from '@/components/Home';
 
 Vue.use(Router);
 
@@ -15,8 +15,8 @@ Router.prototype.push = function push(to) {
 const router = new Router({
     routes: [
         { path: '/', redirect: '/login' },
-        { path: '/login', name: 'login', component: Login },
-        { path: '/home', name: 'home', component: Home }
+        { path: '/login', name: 'Login', component: Login },
+        { path: '/home', name: 'home', component: Home },
     ]
 });
 

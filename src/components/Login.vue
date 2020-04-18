@@ -2,7 +2,7 @@
     <div id="login">
         <input type="text" v-model="loginForm.mobileNo" placeholder="手机号"/>
         <input type="text" v-model="loginForm.verifyCode" placeholder="验证码"/>
-        <button @click="login">登录</button>
+        <button @click="Long">登录</button>
     </div>
 </template>
 
