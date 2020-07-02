@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Login from '@/components/Login';
 import Home from '@/components/Home';
+import Learn from '@/components/learn/ElementLearn';
 
 Vue.use(Router);
 
@@ -17,6 +18,7 @@ const router = new Router({
         { path: '/', redirect: '/login' },
         { path: '/login', name: 'Login', component: Login },
         { path: '/home', name: 'home', component: Home },
+        { path: '/learn', name: 'Learn', component: Learn },
     ]
 });
 
