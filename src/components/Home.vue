@@ -1,45 +1,54 @@
 <template>
     <div id="home">
-        <div id="user">
-            <img class="round_icon" v-bind:src="portrait" alt=""/>
-            <span class="user_name">{{ nickname }}</span>
-            <p>{{ signature }}</p>
-        </div>
-        <div id="module">
-            <ul>
-                <li class="li1"><h3 v-on:click="module='blog_note'">笔记</h3></li>
-                <li class="li1"><h3 v-on:click="module='todo_plan'">土豆计划</h3></li>
-                <li class="li1"><h3 v-on:click="module='photo_story'">照片故事</h3></li>
-                <li class="li1"><h3 v-on:click="module='micro_sentence'">微话</h3></li>
-                <li class="li1"><h3 v-on:click="module='person_friends'">心事圈</h3></li>
-            </ul>
-        </div>
-        <div>
-            <div v-if="module === 'blog_note'">
-                <BlogNote/>
-            </div>
-            <div v-else-if="module === 'todo_plan'">
-                <TodoPlan/>
-            </div>
-            <div v-else-if="module === 'photo_story'">
-                <PhotoStory/>
-            </div>
-            <div v-else-if="module === 'micro_sentence'">
-                <MicroSentence/>
-            </div>
-            <div v-else-if="module === 'person_friends'">
-                <PersonFriends/>
-            </div>
-        </div>
+        <el-row :gutter="20">
+            <el-col :span="6" :offset="4">
+                <el-avatar v-bind:src="portrait"></el-avatar>
+                <span class="el-header">{{ nickname }} | 潇湘馆</span>
+                <p style="font-size: 13px; color: #333">{{ signature }}</p>
+            </el-col>
+
+            <el-col :span="10">
+                <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect"
+                         active-text-color="#ffd04b">
+                    <el-menu-item index="1">笔记</el-menu-item>
+                    <el-menu-item index="2">TODO</el-menu-item>
+                    <el-menu-item index="3">回忆</el-menu-item>
+                    <el-menu-item index="4">微话</el-menu-item>
+                    <el-menu-item index="5">心事</el-menu-item>
+                </el-menu>
+            </el-col>
+        </el-row>
+
+        <el-row>
+            <el-col :span="16" :offset="4">
+                <div>
+                    <div v-if="module === 'blog_note'">
+                        <BlogNote/>
+                    </div>
+                    <div v-else-if="module === 'todo_plan'">
+                        <TodoPlan/>
+                    </div>
+                    <div v-else-if="module === 'photo_story'">
+                        <PhotoStory/>
+                    </div>
+                    <div v-else-if="module === 'micro_sentence'">
+                        <MicroSentence/>
+                    </div>
+                    <div v-else-if="module === 'person_friends'">
+                        <PersonFriends/>
+                    </div>
+                </div>
+            </el-col>
+        </el-row>
     </div>
 </template>
 
 <script>
-    import BlogNote from "@/components/BlogNote";
-    import TodoPlan from "@/components/TodoPlan";
-    import PhotoStory from "@/components/PhotoStory";
-    import MicroSentence from "@/components/MicroSentence";
     import PersonFriends from "@/components/PersonFriends";
+    import MicroSentence from "@/components/MicroSentence";
+    import PhotoStory from "@/components/PhotoStory";
+    import TodoPlan from "@/components/TodoPlan";
+    import BlogNote from "@/components/BlogNote";
 
     export default {
         name: "home",
@@ -50,6 +59,7 @@
                 signature: '',
                 portrait: '',
                 module: 'blog_note',
+                activeIndex: '1'
             }
         },
         created() {
@@ -66,49 +76,19 @@
             }.bind(this)).catch(function (error) {
                 console.log(error);
             });
+        },
+        methods: {
+            handleSelect(key) {
+                console.log(key);
+                if (key === '1') {
+                    this.module = "blog_note"
+                } else if (key === '2') {
+                    this.module = "todo_plan"
+                }
+            }
         }
     }
 </script>
 
 <style scoped>
-    #home {
-        width: 1000px;
-        height: 100%;
-        margin: 0 auto;
-        color: #2c3e50;
-        padding: 30px;
-        background-color: #FFFFFF;
-    }
-
-    #module {
-        width: 500px;
-        margin: 0 auto;
-    }
-
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    .li1 {
-        display: inline-block;
-        margin: 0 10px;
-    }
-
-    .round_icon {
-        padding: 0;
-        margin: 0;
-        vertical-align: middle;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        overflow: hidden;
-    }
-
-    .user_name {
-        color: #333333;
-        font-size: 30px;
-        font-weight: bold;
-        margin-left: 20px;
-    }
 </style>
