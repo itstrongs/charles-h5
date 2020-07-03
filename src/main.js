@@ -7,6 +7,8 @@ import store from "./config/store";
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
+import '@/assets/scss/index.scss'
+
 Vue.use(ElementUI);
 
 Vue.prototype.$http = Vue.$http = http;

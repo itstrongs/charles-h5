@@ -2,9 +2,12 @@
     <div id="home">
         <el-row :gutter="20">
             <el-col :span="6" :offset="4">
-                <el-avatar v-bind:src="portrait"></el-avatar>
-                <span class="el-header">{{ nickname }} | 潇湘馆</span>
-                <p style="font-size: 13px; color: #333">{{ signature }}</p>
+                <div>
+                    <el-avatar v-bind:src="portrait"></el-avatar>
+                    <span class="m-text-title m-text-align">{{ nickname }} | 潇湘馆</span>
+
+                    <p>{{ signature }}</p>
+                </div>
             </el-col>
 
             <el-col :span="10">
@@ -89,6 +92,3 @@
         }
     }
 </script>
-
-<style scoped>
-</style>

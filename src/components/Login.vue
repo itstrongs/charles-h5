@@ -84,12 +84,10 @@
                                 url: '/user/login',
                                 data: _this.ruleForm
                             }).then(res => {
-                                console.log(res.data);
                                 _this.userToken = res.data.data.authorization;
                                 // 将用户token保存到vuex中
                                 _this.changeLogin({Authorization: _this.userToken});
                                 _this.$router.push('/home');
-                                alert('登陆成功');
                             }).catch(error => {
                                 alert('账号或密码错误');
                                 console.log(error);

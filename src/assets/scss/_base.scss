@@ -1,0 +1,61 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.15;
+  color: #303133;
+  background-color: #fff;
+}
+
+img {
+  vertical-align: middle;
+}
+
+//文本样式
+.m-text-title {
+  color: #555;
+  font: bold 20px/1.1 "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif;
+}
+
+.m-text-content-large {
+  font-size: 18px;
+}
+
+.m-text-common {
+
+}
+
+.m-text-tip {
+  color: #6E7173;
+  font-size: 13px;
+}
+
+.m-text-decoration {
+  text-decoration: line-through;
+}
+
+//间距
+.m-margin-top {
+  margin-top: 1em;
+}
+
+.m-margin-top-big {
+  margin-top: 1.5em;
+}
+
+.m-margin-left {
+  margin-left: 1em;
+}
+
+//排版
+.m-text-align {
+  text-align: right;
+}
+
+.m-float-right {
+  float: right;
+}
+
+//颜色
+.m-teal {
+  color: #00B5AD !important;
+}
