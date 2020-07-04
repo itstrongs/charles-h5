@@ -15,8 +15,8 @@
                          active-text-color="#ffd04b">
                     <el-menu-item index="1">笔记</el-menu-item>
                     <el-menu-item index="2">TODO</el-menu-item>
-                    <el-menu-item index="3">回忆</el-menu-item>
-                    <el-menu-item index="4">微话</el-menu-item>
+                    <el-menu-item index="3">微话</el-menu-item>
+                    <el-menu-item index="4">回忆</el-menu-item>
                     <el-menu-item index="5">心事</el-menu-item>
                 </el-menu>
             </el-col>
